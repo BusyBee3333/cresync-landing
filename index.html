@@ -160,13 +160,19 @@
     
     .word { 
       display: inline-block; 
+    }
+    
+    .char {
+      display: inline-block;
+    }
+    
+    .js-loaded .word { 
       opacity: 0;
       transform: translateY(40px) rotateX(-40deg);
       transform-origin: center bottom;
     }
     
-    .char {
-      display: inline-block;
+    .js-loaded .char {
       opacity: 0;
       transform: translateY(100px);
     }
@@ -319,26 +325,46 @@
     }
     
     .reveal-up {
+      opacity: 1;
+    }
+    
+    .reveal-left {
+      opacity: 1;
+    }
+    
+    .reveal-right {
+      opacity: 1;
+    }
+    
+    .reveal-scale {
+      opacity: 1;
+    }
+    
+    .stagger-item {
+      opacity: 1;
+    }
+    
+    .js-loaded .reveal-up {
       opacity: 0;
       transform: translateY(60px);
     }
     
-    .reveal-left {
+    .js-loaded .reveal-left {
       opacity: 0;
       transform: translateX(-60px);
     }
     
-    .reveal-right {
+    .js-loaded .reveal-right {
       opacity: 0;
       transform: translateX(60px);
     }
     
-    .reveal-scale {
+    .js-loaded .reveal-scale {
       opacity: 0;
       transform: scale(0.9);
     }
     
-    .stagger-item {
+    .js-loaded .stagger-item {
       opacity: 0;
       transform: translateY(40px);
     }
@@ -1173,6 +1199,9 @@
   <script>
     // Initialize Lucide icons
     lucide.createIcons();
+    
+    // Mark JS as loaded for animations
+    document.body.classList.add('js-loaded');
     
     // Custom cursor
     const cursor = document.getElementById('cursor');
