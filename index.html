@@ -841,7 +841,7 @@
       <div class="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         <div class="glass rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-10 feature-card stagger-item">
           <h3 class="text-base sm:text-lg font-bold text-zinc-400 mb-2">Basic</h3>
-          <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">$199<span class="text-base sm:text-lg lg:text-xl text-zinc-500 font-medium">/mo</span></div>
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">$297<span class="text-base sm:text-lg lg:text-xl text-zinc-500 font-medium">/mo</span></div>
           <p class="text-zinc-500 text-xs sm:text-sm mb-6 sm:mb-8">Perfect for solo agents getting started.</p>
           <ul class="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
             <li class="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-zinc-300">
@@ -869,9 +869,12 @@
               Email support
             </li>
           </ul>
-          <button class="w-full py-3 sm:py-4 glass-strong rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
-            Start Free Trial
-          </button>
+          <a href="https://cresync.ai/signup?plan=basic"
+             data-price-id="price_1T9sVIKO0CvQOFGyGucfD8hz"
+             data-plan="basic"
+             class="checkout-btn w-full py-3 sm:py-4 glass-strong rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base hover:bg-white/10 transition-all hover:scale-105 active:scale-95 block text-center">
+            Get Started
+          </a>
         </div>
         
         <div class="relative rounded-2xl lg:rounded-3xl stagger-item">
@@ -881,7 +884,7 @@
               <span class="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-brand-500 to-cyan-500 text-black text-xs sm:text-sm font-bold whitespace-nowrap">Most Popular</span>
             </div>
             <h3 class="text-base sm:text-lg font-bold text-brand-400 mb-2 mt-2">Pro</h3>
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">$499<span class="text-base sm:text-lg lg:text-xl text-zinc-500 font-medium">/mo</span></div>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">$497<span class="text-base sm:text-lg lg:text-xl text-zinc-500 font-medium">/mo</span></div>
             <p class="text-zinc-500 text-xs sm:text-sm mb-6 sm:mb-8">For serious agents closing multiple deals.</p>
             <ul class="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
               <li class="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-white">
@@ -921,15 +924,18 @@
                 Priority support
               </li>
             </ul>
-            <button class="w-full py-3 sm:py-4 bg-gradient-to-r from-brand-500 to-cyan-500 hover:from-brand-400 hover:to-cyan-400 text-black rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base transition-all hover:scale-105 active:scale-95 btn-shine">
-              Start Free Trial
-            </button>
+            <a href="https://cresync.ai/signup?plan=pro"
+               data-price-id="price_1T9sVRKO0CvQOFGyw9UI576N"
+               data-plan="pro"
+               class="checkout-btn w-full py-3 sm:py-4 bg-gradient-to-r from-brand-500 to-cyan-500 hover:from-brand-400 hover:to-cyan-400 text-black rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base transition-all hover:scale-105 active:scale-95 btn-shine block text-center">
+              Get Started
+            </a>
           </div>
         </div>
         
         <div class="glass rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-10 feature-card stagger-item">
           <h3 class="text-base sm:text-lg font-bold text-zinc-400 mb-2">Enterprise</h3>
-          <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">Custom</div>
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black mb-1 sm:mb-2">$997<span class="text-base sm:text-lg lg:text-xl text-zinc-500 font-medium">/mo</span></div>
           <p class="text-zinc-500 text-xs sm:text-sm mb-6 sm:mb-8">For teams and brokerages at scale.</p>
           <ul class="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
             <li class="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-zinc-300">
@@ -963,9 +969,12 @@
               SLA guarantee
             </li>
           </ul>
-          <button class="w-full py-3 sm:py-4 glass-strong rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
-            Contact Sales
-          </button>
+          <a href="https://cresync.ai/signup?plan=enterprise"
+             data-price-id="price_1T9sVeKO0CvQOFGy6eytONUP"
+             data-plan="enterprise"
+             class="checkout-btn w-full py-3 sm:py-4 glass-strong rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base hover:bg-white/10 transition-all hover:scale-105 active:scale-95 block text-center">
+            Get Started
+          </a>
         </div>
       </div>
     </div>
@@ -1169,6 +1178,51 @@
       },
       once: true
     });
+  </script>
+
+  <!-- Checkout Button Handler -->
+  <script>
+    (function() {
+      var CHECKOUT_BASE = 'https://cresync.ai/api/v1/checkout';
+
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.checkout-btn');
+        if (!btn) return;
+
+        var priceId = btn.getAttribute('data-price-id');
+        var plan = btn.getAttribute('data-plan');
+        if (!priceId) return;
+
+        e.preventDefault();
+
+        // Show loading state
+        var originalText = btn.textContent.trim();
+        btn.textContent = 'Loading…';
+        btn.style.pointerEvents = 'none';
+
+        // Try to hit the Next.js checkout API; fall back to /signup if unavailable
+        fetch(CHECKOUT_BASE, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ priceId: priceId, plan: plan })
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error('checkout-unavailable');
+          return res.json();
+        })
+        .then(function(data) {
+          if (data.url) {
+            window.location.href = data.url;
+          } else {
+            throw new Error('no-url');
+          }
+        })
+        .catch(function() {
+          // Fall back to signup page with plan param
+          window.location.href = 'https://cresync.ai/signup?plan=' + encodeURIComponent(plan || '');
+        });
+      });
+    })();
   </script>
 </body>
 </html>
